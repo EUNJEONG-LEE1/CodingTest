@@ -8,6 +8,16 @@ import java.util.Arrays;
 // TEST(주)구르미 신입 개발자 공개채용 코딩테스트
 // [일반 프로그래밍 문제] 문제 선정하기
 
+// 테스트 케이스 1
+//6 
+//3 1 4 1 5 9
+//--> YES
+
+// 테스트 케이스 2
+//5
+//1 10 1 10 1
+//--> NO
+
 public class Test1 {
 
         public static void main(String[] args) throws Exception {
