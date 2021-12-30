@@ -40,7 +40,7 @@ public class Test4 {
                     System.out.println("j  : " +j);
                     if(uvc.contains(i+" "+j)){
 
-                        String  cost = uvc.split(" ")[2];
+                        //String  cost = uvc.split(" ")[2];
                         //result = +
                     }
 

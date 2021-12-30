@@ -33,6 +33,7 @@ public class Test1 {
             System.out.println("스페이스를 띄워가며 문자열을 입력하시오");
             String str = sc.nextLine();
 
+            // 1.scannaer 입력받은 String - > String 배열로 변환 -> Treeset 으로 변환
             String[] strArray = new String[Integer.parseInt(n)];
             strArray = str.split(" ");
 
@@ -55,36 +56,16 @@ public class Test1 {
                 System.out.println("NO");
             }
 
+            //2. stream map 사용하여 scannaer 입력받은 String - > int배열로 변환
+            String str2 = "[1, 2, 3, 4, 5]";
 
-//            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//
-//            int N = Integer.parseInt(br.readLine());
-//
-//            // 난이도의 문제 받기
-//            int[] questions = new int[N];
-//            String str = br.readLine();
-//            String[] split = str.split(" ");
-//            for(int i = 0; i < N; ++i){
-//                questions[i] = Integer.parseInt(split[i]);
-//            }
-//
-//            Arrays.sort(questions);
-//
-//            int count = 1;
-//            int before = questions[0];
-//            for(int i : questions){
-//                if(before != i)
-//                    count++;
-//                else if (count == 3)
-//                    break;
-//                before = i;
-//            }
-//            if(count < 3)
-//                System.out.print("NO");
-//            else
-//                System.out.print("YES");
-//
-//            br.close();
+            int[] arr = Arrays.stream(str2.substring(1, str2.length() - 1).split(","))
+            //int[] arr = Arrays.stream(str.split(" "))
+                    .map(String::trim).mapToInt(Integer::parseInt).toArray();
+
+            System.out.println("arr : " + Arrays.toString(arr));
+            System.out.println("arr[3] : " + arr[3]);
+
 
         }
     }
