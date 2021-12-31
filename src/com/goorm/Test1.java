@@ -63,8 +63,8 @@ public class Test1 {
             //int[] arr = Arrays.stream(str.split(" "))
                     .map(String::trim).mapToInt(Integer::parseInt).toArray();
 
-            System.out.println("arr : " + Arrays.toString(arr));
-            System.out.println("arr[3] : " + arr[3]);
+            //System.out.println("arr : " + Arrays.toString(arr));
+            //System.out.println("arr[3] : " + arr[3]);
 
 
         }
