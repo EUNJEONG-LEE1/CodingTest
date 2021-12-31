@@ -1,7 +1,5 @@
 package com.programmers;
 
-import com.sun.xml.internal.ws.policy.EffectiveAlternativeSelector;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -11,42 +9,74 @@ public class Test1 {
 
         Test1 test = new Test1();
 
-        String str = "baabaa";
-
-
+        String str = "bacabaacaa";
+        
         test.solution(str);
 
     }
 
+    static ArrayList<String> newStrs = new ArrayList<String>();
+    static ArrayList<String> strAttayOrigin = new ArrayList<String>();
+    
     public void solution(String str){
         //int answer = 0;
 
-        ArrayList<String> newStr = new ArrayList<String>(Arrays.asList(str.split("")));
-        resolution(newStr);
+        ArrayList<String> strAttay = new ArrayList<String>(Arrays.asList(str.split("")));
+        strAttayOrigin =  strAttay;
+        resolution(strAttay);
+        
+        if(resolution(strAttay)==1) {
+        	System.out.println(1);
+        } else if(resolution(strAttay)==0) {
+        	System.out.print(0);
+        } else if (resolution(strAttay)==2) {
+            resolution(strAttay);   
+        }
 
        // return answer;
     }
 
-    public static void resolution(ArrayList<String> newStr){
+    
+    // 재귀함수
+    public static Integer resolution(ArrayList<String> strAttay){
+		//System.out.println("newStrs : " +newStrs);
+		//System.out.println("strAttay : " +strAttay);
+    	
+		if(newStrs == strAttay) {
+			System.out.println("strAttay : " +strAttay);
+    		return 1;
+        	//System.out.print(1);
+    	}
+    	newStrs =  strAttay;
+    	
+        
+        for(int i=0; i<newStrs.size()-1; i++) {
+        	
+            String c1 = newStrs.get(i);
+            String c2 = newStrs.get(i+1);
 
-        //ArrayList<String> newStr2 =  new ArrayList<>();
-
-        for(int i=0; i< newStr.size(); i++) {
-            String c1 = newStr.get(i);
-            String c2 = newStr.get(i+1);
-            System.out.println("c1 : " + c1 + ", c2 : " + c2);
-
-            if (c1 == c2) {
-                System.out.println("newStr= : " + newStr);
-                newStr.remove(i + 1);
-                newStr.remove(i);
-                System.out.println("newStr : " + newStr);
+            if (c1.equals(c2)) {
+            	newStrs.remove(i + 1);
+            	newStrs.remove(i);
+                //System.out.println("newStrs : " + newStrs);
                 break;
             }
+            if((i==newStrs.size()-1)&&(!c1.equals(c2))) {
+                System.out.println("newStrs : " + newStrs);
+            	return 1;
+            }
+
         }
-        resolution(newStr);
+        
+        if(newStrs.size()==0) {
+        	return 0;
+        } else {
+            return 2;
+        }
+        
 
     }
+    
 
 
 }
