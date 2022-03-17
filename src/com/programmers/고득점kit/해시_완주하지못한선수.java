@@ -2,6 +2,9 @@ package com.programmers.고득점kit;
 
 import java.util.HashMap;
 
+/*
+HashMap(key,value) 중복체크 value+1
+*/
 public class 해시_완주하지못한선수 {
 
 	
